@@ -615,6 +615,148 @@
         }
         .fade-in-section.visible { opacity: 1; transform: translateY(0); }
         .lift:hover { transform: translateY(-6px) !important; }
+
+        /* ─── GEOMETRIC BACKGROUND WIDGETS ─── */
+        :root {
+            --widget-size: 1500px;
+            --widget-line-weight: 5px;
+            --widget-opacity: 0.30;
+            --widget-transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            --purple-glow-widget: #ffffff;
+            --purple-light-widget: #ffffff;
+            --purple-border-widget: #ffffff;
+            --n: 24;
+        }
+
+        .mage-bg-widget {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            will-change: transform, opacity;
+        }
+
+        .left-side { left: calc(var(--widget-size) * -0.4); }
+        .right-side { right: calc(var(--widget-size) * -0.4); }
+
+        @media (max-width: 768px) {
+            :root { --widget-size: 180vw; }
+            .left-side { left: -70vw; }
+            .right-side { right: -70vw; }
+        }
+
+        .mage-bg-widget.emerged { opacity: var(--widget-opacity); }
+
+        .crystal-gear-container {
+            position: relative;
+            width: var(--widget-size);
+            height: var(--widget-size);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ORIGINAL SHARD SHAPE */
+        .shard {
+            position: absolute;
+            width: 60px;
+            height: 220px;
+            background: transparent;
+            border: var(--widget-line-weight) solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 15px var(--purple-glow-widget);
+            transition: var(--widget-transition);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .shard-core {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border: var(--widget-line-weight) dashed var(--purple-light-widget);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--widget-transition);
+            opacity: 0.3;
+        }
+
+        /* 24-Point Staggered Placement (15 degree steps) */
+        .s1 { transform: rotate(0deg) translateY(-420px); }
+        .s2 { transform: rotate(15deg) translateY(-420px); }
+        .s3 { transform: rotate(30deg) translateY(-420px); }
+        .s4 { transform: rotate(45deg) translateY(-420px); }
+        .s5 { transform: rotate(60deg) translateY(-420px); }
+        .s6 { transform: rotate(75deg) translateY(-420px); }
+        .s7 { transform: rotate(90deg) translateY(-420px); }
+        .s8 { transform: rotate(105deg) translateY(-420px); }
+        .s9 { transform: rotate(120deg) translateY(-420px); }
+        .s10 { transform: rotate(135deg) translateY(-420px); }
+        .s11 { transform: rotate(150deg) translateY(-420px); }
+        .s12 { transform: rotate(165deg) translateY(-420px); }
+        .s13 { transform: rotate(180deg) translateY(-420px); }
+        .s14 { transform: rotate(195deg) translateY(-420px); }
+        .s15 { transform: rotate(210deg) translateY(-420px); }
+        .s16 { transform: rotate(225deg) translateY(-420px); }
+        .s17 { transform: rotate(240deg) translateY(-420px); }
+        .s18 { transform: rotate(255deg) translateY(-420px); }
+        .s19 { transform: rotate(270deg) translateY(-420px); }
+        .s20 { transform: rotate(285deg) translateY(-420px); }
+        .s21 { transform: rotate(300deg) translateY(-420px); }
+        .s22 { transform: rotate(315deg) translateY(-420px); }
+        .s23 { transform: rotate(330deg) translateY(-420px); }
+        .s24 { transform: rotate(345deg) translateY(-420px); }
+
+        /* ─── TRANSFORMATION (24 TEETH) ─── */
+        .is-gear .shard {
+            border-color: var(--purple-light-widget);
+            height: 90px;
+            width: 110px;
+            clip-path: polygon(25% 0%, 75% 0%, 100% 25%, 100% 75%, 75% 100%, 25% 100%, 0% 75%, 0% 25%);
+        }
+
+        /* Expansion logic for 24 teeth */
+        .is-gear [class^="s"] { transform: translateY(-570px); } /* Selector for all shards */
+
+        /* Re-applying rotations during gear phase */
+        .is-gear .s1 { transform: rotate(0deg) translateY(-570px); }
+        .is-gear .s2 { transform: rotate(15deg) translateY(-570px); }
+        .is-gear .s3 { transform: rotate(30deg) translateY(-570px); }
+        .is-gear .s4 { transform: rotate(45deg) translateY(-570px); }
+        .is-gear .s5 { transform: rotate(60deg) translateY(-570px); }
+        .is-gear .s6 { transform: rotate(75deg) translateY(-570px); }
+        .is-gear .s7 { transform: rotate(90deg) translateY(-570px); }
+        .is-gear .s8 { transform: rotate(105deg) translateY(-570px); }
+        .is-gear .s9 { transform: rotate(120deg) translateY(-570px); }
+        .is-gear .s10 { transform: rotate(135deg) translateY(-570px); }
+        .is-gear .s11 { transform: rotate(150deg) translateY(-570px); }
+        .is-gear .s12 { transform: rotate(165deg) translateY(-570px); }
+        .is-gear .s13 { transform: rotate(180deg) translateY(-570px); }
+        .is-gear .s14 { transform: rotate(195deg) translateY(-570px); }
+        .is-gear .s15 { transform: rotate(210deg) translateY(-570px); }
+        .is-gear .s16 { transform: rotate(225deg) translateY(-570px); }
+        .is-gear .s17 { transform: rotate(240deg) translateY(-570px); }
+        .is-gear .s18 { transform: rotate(255deg) translateY(-570px); }
+        .is-gear .s19 { transform: rotate(270deg) translateY(-570px); }
+        .is-gear .s20 { transform: rotate(285deg) translateY(-570px); }
+        .is-gear .s21 { transform: rotate(300deg) translateY(-570px); }
+        .is-gear .s22 { transform: rotate(315deg) translateY(-570px); }
+        .is-gear .s23 { transform: rotate(330deg) translateY(-570px); }
+        .is-gear .s24 { transform: rotate(345deg) translateY(-570px); }
+
+        .is-gear .shard-core {
+            width: 750px;
+            height: 750px;
+            border: 2px solid var(--purple-border-widget);
+            opacity: 0.7;
+            transform: rotate(-180deg);
+        }
+
+        /* Staggered Delays for all 24 shards (0.02s increments for smooth flow) */
+        .shard:nth-child(n) { transition-delay: calc(0.02s * (var(--n) - 1)); }
     </style>
 </head>
 <body>
@@ -638,9 +780,8 @@
                 <button class="nav-link" onclick="navScrollTo('#team')">Team</button>
                 <button class="nav-link" onclick="navScrollTo('#sponsors')">Sponsors</button>
                 <button class="nav-link" onclick="navScrollTo('#contact')">Contact</button>
-                <button class="nav-link" onclick="navScrollTo('#joinus')">Join Us</button>
             </div>
-            <button class="btn btn-primary nav-sponsor" onclick="navScrollTo('#sponsors')" style="padding:.6rem 1.4rem;font-size:.85rem;">Become a Sponsor</button>
+            <button class="btn btn-primary nav-sponsor" onclick="navScrollTo('#sponsors')" style="padding:.6rem 1.4rem;font-size:.85rem;">Support Us</button>
             <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
                 <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -653,9 +794,8 @@
             <button class="mobile-link" onclick="navScrollTo('#team');closeMobile()">Team</button>
             <button class="mobile-link" onclick="navScrollTo('#sponsors');closeMobile()">Sponsors</button>
             <button class="mobile-link" onclick="navScrollTo('#contact');closeMobile()">Contact</button>
-            <button class="mobile-link" onclick="navScrollTo('#joinus');closeMobile()">Join Us</button>
             <div class="mobile-menu-footer">
-                <button class="btn btn-primary" style="width:100%;border-radius:.875rem;" onclick="navScrollTo('#sponsors');closeMobile()">Become a Sponsor</button>
+                <button class="btn btn-primary" style="width:100%;border-radius:.875rem;" onclick="navScrollTo('#sponsors');closeMobile()">Support Us</button>
             </div>
         </div>
     </div>
@@ -677,17 +817,55 @@
             Mage Robotics is a FIRST Tech Challenge team from Kanata, Ontario — driven by curiosity, powered by collaboration, and forged in competition.
         </p>
         <div class="hero-ctas">
+            <button class="btn btn-outline" onclick="navScrollTo('#contact')" style="padding:.875rem 2.25rem;font-size:1.05rem;">Contact Us</button>
             <button class="btn btn-primary" onclick="navScrollTo('#sponsors')" style="padding:.875rem 2.25rem;font-size:1.05rem;">
                 Support Our Mission
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
-            <button class="btn btn-outline" onclick="navScrollTo('#joinus')" style="padding:.875rem 2.25rem;font-size:1.05rem;">Join the Team</button>
         </div>
     </div>
     <button class="scroll-hint" onclick="navScrollTo('#about')" aria-label="Scroll down">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
 </section>
+
+<div class="mage-bg-widget left-side" id="widgetLeft">
+    <div class="crystal-gear-container">
+        <!-- 8 Shards for a complex geometric look -->
+        <div class="shard s1"></div><div class="shard s2"></div>
+        <div class="shard s3"></div><div class="shard s4"></div>
+        <div class="shard s5"></div><div class="shard s6"></div>
+        <div class="shard s7"></div><div class="shard s8"></div>
+        <div class="shard s9"></div><div class="shard s10"></div>
+        <div class="shard s11"></div><div class="shard s12"></div>
+        <div class="shard s13"></div><div class="shard s14"></div>
+        <div class="shard s15"></div><div class="shard s16"></div>
+        <div class="shard s17"></div><div class="shard s18"></div>
+        <div class="shard s19"></div><div class="shard s20"></div>
+        <div class="shard s21"></div><div class="shard s22"></div>
+        <div class="shard s23"></div><div class="shard s24"></div>
+        <div class="shard-core"></div>
+    </div>
+</div>
+
+<div class="mage-bg-widget right-side" id="widgetRight">
+    <div class="crystal-gear-container">
+        <!-- 8 Shards for a complex geometric look -->
+        <div class="shard s1"></div><div class="shard s2"></div>
+        <div class="shard s3"></div><div class="shard s4"></div>
+        <div class="shard s5"></div><div class="shard s6"></div>
+        <div class="shard s7"></div><div class="shard s8"></div>
+        <div class="shard s9"></div><div class="shard s10"></div>
+        <div class="shard s11"></div><div class="shard s12"></div>
+        <div class="shard s13"></div><div class="shard s14"></div>
+        <div class="shard s15"></div><div class="shard s16"></div>
+        <div class="shard s17"></div><div class="shard s18"></div>
+        <div class="shard s19"></div><div class="shard s20"></div>
+        <div class="shard s21"></div><div class="shard s22"></div>
+        <div class="shard s23"></div><div class="shard s24"></div>
+        <div class="shard-core"></div>
+    </div>
+</div>
 
 <!-- ─── ABOUT (1 — Who We Are / Steal Intro) ─── -->
 <section id="about" style="padding:6rem 0;background:var(--dark);">
@@ -869,13 +1047,13 @@
                     <div class="card timeline-card">
                         <div class="timeline-meta">
                             <span class="phase-badge highlight">Founding</span>
-                            <span class="timeline-period">Month XXXX</span>
+                            <span class="timeline-period">May 2026</span>
                         </div>
                         <div class="timeline-title">Team Founded</div>
                         <div class="timeline-desc">Mage Robotics is established. Team members recruited, roles assigned, and the dream begins.</div>
                     </div>
                 </div>
-                <div class="timeline-item" data-index="1">
+                <!-- <div class="timeline-item" data-index="1">
                     <div class="timeline-node-wrap">
                         <div class="timeline-node normal">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03"/></svg>
@@ -889,6 +1067,7 @@
                         <div class="timeline-title">Build Season Begins</div>
                         <div class="timeline-desc">Game reveal drops. Design brainstorms, CAD sessions, and first prototypes get underway.</div>
                     </div>
+
                 </div>
                 <div class="timeline-item" data-index="2">
                     <div class="timeline-node-wrap">
@@ -920,6 +1099,7 @@
                         <div class="timeline-desc">Season closes. Awards pursued, lessons learned, and eyes already on next year.</div>
                     </div>
                 </div>
+            -->
             </div>
         </div>
     </div>
@@ -962,7 +1142,7 @@
                     <div class="team-photo-overlay"><span class="team-dept-badge">Media</span></div>
                 </div>
                 <div class="team-info">
-                    <div class="team-name">Kolya Shymko</div>
+                    <div class="team-name">Thy Le</div>
                     <div class="team-role">Lead Media</div>
                 </div>
             </div>
@@ -1022,8 +1202,8 @@
                     <div class="team-photo-overlay"><span class="team-dept-badge">Media</span></div>
                 </div>
                 <div class="team-info">
-                    <div class="team-name">Thy Le</div>
-                    <div class="team-role">Aesthetic & Design</div>
+                    <div class="team-name">Kolya Shymko</div>
+                    <div class="team-role">Photography & Content</div>
                 </div>
             </div>
             <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
@@ -1105,28 +1285,7 @@
             <p class="section-body">Mage Robotics is powered by the generosity of sponsors who believe in the next generation.</p>
         </div>
         <div class="sponsor-tiers fade-in-section">
-            <div class="sponsor-tier">
-                <h3>Gold Sponsors</h3>
-                <div class="sponsor-logos">
-                    <div class="sponsor-slot">Sponsor Logo</div>
-                    <div class="sponsor-slot">Sponsor Logo</div>
-                </div>
-            </div>
-            <div class="sponsor-tier">
-                <h3>Silver Sponsors</h3>
-                <div class="sponsor-logos">
-                    <div class="sponsor-slot">Sponsor Logo</div>
-                    <div class="sponsor-slot">Sponsor Logo</div>
-                    <div class="sponsor-slot">Sponsor Logo</div>
-                </div>
-            </div>
-            <div class="sponsor-tier">
-                <h3>Supporters</h3>
-                <div class="sponsor-logos">
-                    <div class="sponsor-slot">Supporter</div>
-                    <div class="sponsor-slot">Supporter</div>
-                </div>
-            </div>
+
         </div>
 
         <!-- CTA -->
@@ -1175,45 +1334,6 @@
             <p class="section-body">Have a question, want to sponsor us, or just want to chat? Reach out.</p>
         </div>
         <div class="contact-grid">
-            <div class="contact-form-wrap fade-in-section">
-                <h3>Send a Message</h3>
-                <form id="contactForm" novalidate>
-                    <div class="form-row two">
-                        <div>
-                            <label for="name">Name</label>
-                            <input class="form-input" id="name" type="text" placeholder="Your name" autocomplete="name" />
-                        </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input class="form-input" id="email" type="email" placeholder="you@email.com" autocomplete="email" />
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div>
-                            <label for="subject">Subject</label>
-                            <input class="form-input" id="subject" type="text" placeholder="What's this about?" />
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div>
-                            <label for="message">Message</label>
-                            <textarea class="form-textarea" id="message" placeholder="Your message..."></textarea>
-                        </div>
-                    </div>
-                    <div class="form-error" id="formError"></div>
-                    <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
-                        <svg id="sendIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                        <svg id="spinnerIcon" class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="10" stroke-opacity=".25"/><path d="M12 2a10 10 0 0110 10" stroke-opacity=".75"/></svg>
-                        <span id="submitText">Send Message</span>
-                    </button>
-                </form>
-                <div id="formSuccess" style="display:none;" class="form-success">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                    <h3>Message Sent!</h3>
-                    <p>We'll get back to you as soon as we can.</p>
-                    <button class="btn btn-primary" onclick="resetForm()" style="border-radius:.875rem;">Send Another</button>
-                </div>
-            </div>
             <div class="contact-sidebar fade-in-section" style="transition-delay:.15s">
                 <div class="contact-info-card card">
                     <h3>Direct Links</h3>
@@ -1262,6 +1382,45 @@
                     </div>
                 </div>
             </div>
+            <div class="contact-form-wrap fade-in-section">
+                <h3>Send a Message</h3>
+                <form id="contactForm" novalidate>
+                    <div class="form-row two">
+                        <div>
+                            <label for="name">Name</label>
+                            <input class="form-input" id="name" type="text" placeholder="Your name" autocomplete="name" />
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input class="form-input" id="email" type="email" placeholder="you@email.com" autocomplete="email" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div>
+                            <label for="subject">Subject</label>
+                            <input class="form-input" id="subject" type="text" placeholder="What's this about?" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea class="form-textarea" id="message" placeholder="Your message..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-error" id="formError"></div>
+                    <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+                        <svg id="sendIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        <svg id="spinnerIcon" class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="10" stroke-opacity=".25"/><path d="M12 2a10 10 0 0110 10" stroke-opacity=".75"/></svg>
+                        <span id="submitText">Send Message</span>
+                    </button>
+                </form>
+                <div id="formSuccess" style="display:none;" class="form-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <h3>Message Sent!</h3>
+                    <p>We'll get back to you as soon as we can.</p>
+                    <button class="btn btn-primary" onclick="resetForm()" style="border-radius:.875rem;">Send Another</button>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -1303,7 +1462,6 @@
                     <li><button onclick="navScrollTo('#team')">Team</button></li>
                     <li><button onclick="navScrollTo('#impact')">Impact</button></li>
                     <li><button onclick="navScrollTo('#sponsors')">Sponsors</button></li>
-                    <li><button onclick="navScrollTo('#joinus')">Join Us</button></li>
                     <li><button onclick="navScrollTo('#contact')">Contact</button></li>
                 </ul>
             </div>
@@ -1344,6 +1502,31 @@
 </button>
 
 <script>
+    $(window).on('scroll', function() {
+        let scrollPos = $(window).scrollTop();
+        const widgetLeft = $('#widgetLeft');
+        const widgetRight = $('#widgetRight');
+
+        // Thresholds
+        if (scrollPos > 150) {
+            $('.mage-bg-widget').addClass('emerged');
+        } else {
+            $('.mage-bg-widget').removeClass('emerged');
+        }
+
+        if (scrollPos > ($('#about').offset().top - 500)) {
+            $('.mage-bg-widget').addClass('is-gear');
+        } else {
+            $('.mage-bg-widget').removeClass('is-gear');
+        }
+
+        // SLOW, HOLLOW ROTATION (Parallax feel)
+        // Left spins forward, Right spins backward
+        let rotation = scrollPos * 0.08;
+        widgetLeft.find('.crystal-gear-container').css('transform', `rotate(${rotation}deg)`);
+        widgetRight.find('.crystal-gear-container').css('transform', `rotate(-${rotation}deg)`);
+    });
+
     function navScrollTo(selector) {
         const el = document.querySelector(selector);
         if (el) el.scrollIntoView({ behavior: 'smooth' });
