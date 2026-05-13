@@ -1729,21 +1729,34 @@
         // Random Rotation & Shape Distortion
         const rotation = Math.floor(Math.random() * 360);
         // Creates "bloppy" or jagged irregular corners
-        const r1 = Math.random() * 100;
-        const r2 = Math.random() * 100;
-        const r3 = Math.random() * 100;
-        const r4 = Math.random() * 100;
+        const r = () => Math.floor(Math.random() * 100);
 
         Object.assign(glitch.style, {
             width: `${width}px`,
             height: `${height}px`,
             left: `${posX}%`,
             top: `${posY}%`,
-            borderRadius: `${r1}% ${r2}% ${r3}% ${r4}%`, // Non-square shape
+            borderRadius: `${r()}% ${r()}% ${r()}% ${r()}% / ${r()}% ${r()}% ${r()}% ${r()}%`, // Non-square shape
+            transformOrigin: 'center center',
+            display: 'block',
+            transform: `scale(1)`,
             rotate: `${rotation}deg`
         });
 
         hero.appendChild(glitch);
+
+        const updateTransform = () => {
+            const scrollY = window.scrollY;
+            const scaleFactor = 1 + (scrollY/676); // Increased sensitivity
+// Multiply the ORIGINAL random width/height by the scale factor
+            glitch.style.width = `${width * scaleFactor}px`;
+            glitch.style.height = `${height * scaleFactor}px`;
+        };
+
+// Initialize once so it's not scale(0) or weird on start
+        updateTransform();
+
+        window.addEventListener('scroll', updateTransform);
 
         // Clean up after 6 seconds
         setTimeout(() => {
@@ -1754,7 +1767,7 @@
     function startGhostlyEffect() {
         spawnGhostlyGlitch();
         // Rare interval for that "mystical" feel
-        setTimeout(startGhostlyEffect, Math.random() * 5000 + 3000);
+        setTimeout(startGhostlyEffect, Math.random() * 1500 + 4500);
     }
 
     document.addEventListener('DOMContentLoaded', startGhostlyEffect);
