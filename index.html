@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--  – FTC Team XXXXX -->
     <title>Mage Robotics</title>
-    <meta name="description" content="Mage Robotics: we are a community FTC team from Kanata, Ontario!" />
+    <meta name="description" content="Mage Robotics - we are a community FTC team from Kanata, Ontario, engineering the future one season at a time!" />
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -550,8 +551,7 @@
         @media (min-width: 768px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; } }
         .footer-logo { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.5rem; }
         .footer-logo-placeholder {
-            width: 3rem; height: 3rem; border-radius: .75rem;
-            background: var(--purple); border: 1px solid var(--purple-light);
+            width: 3rem; height: 3rem;
             display: flex; align-items: center; justify-content: center;
             font-family: 'Cinzel', serif; font-weight: 900; font-size: 1.1rem; color: #fff;
         }
@@ -864,8 +864,7 @@
     <div class="container">
         <div class="nav-inner">
             <a class="nav-logo" href="#" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">
-                <!-- Replace with: <img src="assets/logo.png" alt="Mage Robotics Logo" /> -->
-                <div class="nav-logo-placeholder">M</div>
+                <img src="assets/logo.png" alt="Logo" style="border: none"/>
                 <div class="nav-logo-text">
                     <div class="name">M A G E</div>
                     <div class="sub">ROBOTICS</div>
@@ -1417,7 +1416,7 @@
             <div class="glow"></div>
             <h2>Become a Sponsor</h2>
             <p>
-                We're looking for sponsors who want to support young engineers from Kanata. Your contribution goes directly toward parts, tools, CAD software, competition fees, and travel. Here's how it helps — and how it helps <em>you</em>.
+                We're looking for sponsors who want to support young engineers from Kanata. Your contribution goes directly toward parts, tools, CAD software, competition fees, etc. Here's how it helps us, and how it helps <em>you</em>.
             </p>
             <button class="btn btn-primary" onclick="navScrollTo('#contact')" style="border-radius:.875rem;padding:.875rem 2rem;position:relative;">
                 Get in Touch
@@ -1427,7 +1426,7 @@
                 <div class="why-item">
                     <div class="why-num">01</div>
                     <div class="why-title">Brand Visibility</div>
-                    <div class="why-desc">Your logo on our robot, uniforms, and website — seen at competitions and online.</div>
+                    <div class="why-desc">Your logo on our robot, uniforms, and website, seen at competitions and online.</div>
                 </div>
                 <div class="why-item">
                     <div class="why-num">02</div>
@@ -1442,7 +1441,7 @@
                 <div class="why-item">
                     <div class="why-num">04</div>
                     <div class="why-title">Potential Awards</div>
-                    <div class="why-desc">Sponsors are recognized in our Engineering Notebook — a judged deliverable at competitions.</div>
+                    <div class="why-desc">Sponsors are recognized in our Engineering Notebook, a judged deliverable at competitions.</div>
                 </div>
             </div>
         </div>
@@ -1479,14 +1478,16 @@
                             <div class="contact-link-sub">@mage.robotics</div>
                         </div>
                     </a>
-                    <a class="contact-link-row" href="https://www.tiktok.com/@magerobotics" target="_blank" rel="noopener">
-                        <div class="contact-link-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /> </svg>                        </div>
-                        <div>
-                            <div class="contact-link-title">TikTok</div>
-                            <div class="contact-link-sub">@magerobotics</div>
-                        </div>
-                    </a>
+                    <div style="display: none !important">
+                        <a class="contact-link-row" href="https://www.tiktok.com/@magerobotics" target="_blank" rel="noopener">
+                            <div class="contact-link-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /> </svg>                        </div>
+                            <div>
+                                <div class="contact-link-title">TikTok</div>
+                                <div class="contact-link-sub">@magerobotics</div>
+                            </div>
+                        </a>
+                    </div>
                     <a class="contact-link-row" href="https://www.youtube.com/@magerobotics-ftc" target="_blank" rel="noopener">
                         <div class="contact-link-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" /> <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /> </svg>
@@ -1555,7 +1556,9 @@
         <div class="footer-grid">
             <div>
                 <div class="footer-logo">
-                    <div class="footer-logo-placeholder">M</div>
+                    <div class="footer-logo-placeholder">
+                        <img src="assets/logo.png" alt="Logo" style="border: none"/>
+                    </div>
                     <div>
                         <div class="footer-logo-name">MAGE ROBOTICS</div>
                         <div style="display: none !important">
@@ -1563,7 +1566,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="footer-desc">A competitive FIRST Tech Challenge team from Kanata, Ontario — engineering the future one season at a time.</p>
+                <p class="footer-desc">A competitive FIRST Tech Challenge team from Kanata, Ontario, engineering the future one season at a time.</p>
                 <div class="footer-socials">
                     <a class="footer-social" href="mailto:team@magerobotics.ca" aria-label="Email">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
@@ -1571,9 +1574,11 @@
                     <a class="footer-social" href="https://instagram.com/mage.robotics" target="_blank" rel="noopener" aria-label="Instagram">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                     </a>
-                    <a class="footer-social" href="https://www.tiktok.com/@magerobotics" target="_blank" rel="noopener" aria-label="TikTok">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /> </svg>
-                    </a>
+                    <div style="display: none !important">
+                        <a class="footer-social" href="https://www.tiktok.com/@magerobotics" target="_blank" rel="noopener" aria-label="TikTok">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /> </svg>
+                        </a>
+                    </div>
                     <a class="footer-social" href="https://www.youtube.com/@magerobotics-ftc" target="_blank" rel="noopener" aria-label="YouTube">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" /> <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /> </svg>
                     </a>
@@ -1604,9 +1609,11 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         <a href="https://instagram.com/mage.robotics">@mage.robotics</a>
                     </div>
-                    <div class="footer-contact-item">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /> </svg>
-                        <a href="https://www.tiktok.com/@magerobotics">@magerobotics</a>
+                    <div style="display: none !important">
+                        <div class="footer-contact-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /> </svg>
+                            <a href="https://www.tiktok.com/@magerobotics">@magerobotics</a>
+                        </div>
                     </div>
                     <div class="footer-contact-item">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" /> <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /> </svg>
