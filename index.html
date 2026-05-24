@@ -1850,7 +1850,7 @@
         formError.classList.remove('show');
         submitBtn.disabled = true; sendIcon.style.display = 'none'; spinnerIcon.style.display = ''; submitText.textContent = 'Sending…';
         $.ajax({
-            url: "contactform.magerobotics.ca",
+            url: "https://contactform.magerobotics.ca",
             method: "POST",
             data: JSON.stringify({ name, email, subject, message, turnstileToken }),
             dataType: "json"
