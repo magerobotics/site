@@ -15,10 +15,10 @@
 
     <style>
         :root {
-            --black:        #000000;
-            --dark:         #0a080f;
-            --dark-2:       #110d1a;
-            --dark-3:       #18112a;
+            --black: #160d26;
+            --dark: #160e25;
+            --dark-2: #1b0f32;
+            --dark-3: #21143a;
             --purple:       #53328F;
             --purple-light: #8A59E6;
             --purple-glow:  rgba(138,89,230,.18);
@@ -30,6 +30,66 @@
             --radius-2xl:   1.5rem;
             --radius-3xl:   2rem;
         }
+
+        /* ─── Light Mode Overrides ─── */
+        body.light-mode {
+            --dark:         #f4f1fb;
+            --dark-2:       #eae4f7;
+            --dark-3:       #ddd6f0;
+            --black:        #f0ecfa;
+            --off-white:    #1a0f2e;
+            --muted:        #5c4d80;
+            --white:        #1a0f2e;
+            --purple-glow:  rgba(83,50,143,.10);
+            --purple-border:rgba(83,50,143,.25);
+        }
+        body.light-mode #nav.scrolled {
+            background: rgba(244,241,251,.90);
+        }
+        body.light-mode .nav-link { color: rgba(26,15,46,.8); }
+        body.light-mode .nav-link:hover { color: var(--purple); }
+        body.light-mode .hamburger { color: var(--purple); }
+        body.light-mode .mobile-menu { background: var(--dark); }
+        body.light-mode .mobile-link { color: var(--off-white); }
+        body.light-mode .mobile-link:hover { background: var(--dark-2); }
+        body.light-mode footer { background: #ddd6f0; }
+        body.light-mode .footer-copy { color: rgba(26,15,46,.4); }
+        body.light-mode .footer-desc { color: rgba(26,15,46,.55); }
+        body.light-mode .footer-links li button { color: rgba(26,15,46,.5); }
+        body.light-mode .footer-contact-item { color: rgba(26,15,46,.5); }
+        body.light-mode .footer-logo-sub { color: rgba(26,15,46,.4); }
+        body.light-mode .footer-social { background: rgba(83,50,143,.12); }
+        body.light-mode .hero-bg-placeholder {
+            background: radial-gradient(ellipse 120% 80% at 60% 40%, #c9b3f0 0%, #f4f1fb 60%);
+        }
+        body.light-mode .hero-h1, body.light-mode .stat-num { color: #1a0f2e; }
+        body.light-mode .hero-sub, body.light-mode .stat-lbl { color: rgba(26,15,46,.65); }
+        body.light-mode .btn-outline { color: #1a0f2e; border-color: rgba(26,15,46,.3); }
+        body.light-mode .btn-outline:hover { background: rgba(26,15,46,.07); border-color: rgba(26,15,46,.7); }
+        body.light-mode .scroll-hint { color: rgba(26,15,46,.4); }
+        body.light-mode ::-webkit-scrollbar-track { background: var(--dark); }
+        body.light-mode .contact-link-row { background: rgba(0,0,0,.04); }
+        body.light-mode .contact-link-row:hover { background: var(--purple-glow); }
+        body.light-mode .sponsor-slot:hover { background: var(--purple-glow); }
+        body.light-mode .form-input, body.light-mode .form-select, body.light-mode .form-textarea {
+            background: var(--dark-2);
+            color: var(--off-white);
+        }
+
+        /* ─── Theme Toggle Button ─── */
+        .theme-toggle {
+            display: flex; align-items: center; justify-content: center;
+            width: 2.25rem; height: 2.25rem; border-radius: 50%;
+            background: var(--purple-glow); border: 1.5px solid var(--purple-border);
+            color: var(--off-white); transition: background .2s, border-color .2s, transform .2s;
+            flex-shrink: 0;
+        }
+        .theme-toggle:hover { background: var(--purple-glow); border-color: var(--purple-light); transform: rotate(20deg); }
+        .theme-toggle svg { width: 1.1rem; height: 1.1rem; stroke: var(--purple-light); fill: none; transition: opacity .2s; }
+        .theme-toggle .icon-moon { display: block; }
+        .theme-toggle .icon-sun  { display: none; }
+        body.light-mode .theme-toggle .icon-moon { display: none; }
+        body.light-mode .theme-toggle .icon-sun  { display: block; }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -600,6 +660,31 @@
         .back-to-top:hover { background: var(--purple-light); transform: scale(1.1); }
         .back-to-top svg { width: 1.25rem; height: 1.25rem; stroke: #fff; }
 
+        /* ─── Mobile Improvements ─── */
+        @media (max-width: 480px) {
+            .hero-ctas { flex-direction: column; align-items: stretch; }
+            .hero-ctas .btn { justify-content: center; width: 100%; }
+            .hero-stats { gap: 1rem; }
+            .stat-num { font-size: 2rem; }
+            .mission-box { padding: 2.25rem 1.25rem; }
+            .mission-quote { font-size: 1rem; }
+            .values-grid { grid-template-columns: 1fr; }
+            .impact-nums { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .recruit-quick-links { grid-template-columns: 1fr; }
+            .sponsor-cta { padding: 2.25rem 1.25rem; }
+            .sponsor-why { grid-template-columns: 1fr; }
+            .contact-form-wrap, .recruit-form-wrap { padding: 1.5rem 1.25rem; }
+            .timeline-card { margin-left: 3rem; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+            .back-to-top { bottom: 1.25rem; right: 1.25rem; width: 2.5rem; height: 2.5rem; }
+        }
+        @media (max-width: 360px) {
+            .hero-h1 { font-size: 2rem; }
+            .team-grid { grid-template-columns: 1fr 1fr; }
+        }
+        /* Prevent horizontal scroll on very small screens */
+        section, footer, nav { max-width: 100vw; overflow-x: hidden; }
+
         /* ─── Animations ─── */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(2rem); }
@@ -882,6 +967,14 @@
                 <button class="nav-link" onclick="navScrollTo('#contact')">Contact</button>
             </div>
             <button class="btn btn-primary nav-sponsor" onclick="navScrollTo('#sponsors')" style="padding:.6rem 1.4rem;font-size:.85rem;">Support Us</button>
+            <div style="display: none !important">
+                <button class="theme-toggle" id="themeToggleBtn" aria-label="Toggle light/dark mode">
+                    <!-- Moon icon (shown in dark mode) -->
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <!-- Sun icon (shown in light mode) -->
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+            </div>
             <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
                 <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
                 <svg id="closeIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -891,7 +984,7 @@
             <button class="mobile-link" onclick="navScrollTo('#about');closeMobile()">About</button>
             <div style="display: none !important">
                 <button class="mobile-link" onclick="navScrollTo('#goals');closeMobile()">Goals</button>
-            <button class="mobile-link" onclick="navScrollTo('#timeline');closeMobile()">Timeline</button>
+                <button class="mobile-link" onclick="navScrollTo('#timeline');closeMobile()">Timeline</button>
             </div>
             <button class="mobile-link" onclick="navScrollTo('#team');closeMobile()">Team</button>
             <button class="mobile-link" onclick="navScrollTo('#impact');closeMobile()">Impact</button>
@@ -990,227 +1083,227 @@
                 <!-- Replace with actual group photo (everyone in uniform) -->
                 <div class="team-card pic-frame " style="aspect-ratio:2/1;background:var(--dark-3);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem; margin-bottom: 10vh">
                     <img src="assets/teamphoto.jpg" alt="Team Photo">
-            </div>
-            <div>
-                <span class="section-label">Our Story</span>
-                <h3 class="section-heading" style="font-size:clamp(1.4rem,3vw,2rem);">From Kanata, For the Future</h3>
-                <p style="color:var(--muted);line-height:1.8;margin-bottom:1.25rem;font-size:.95rem;">
-                    We're a first-year FTC team, f by students who believe robotics is more than a competition: it's a launchpad for engineers, designers, strategists, and leaders of tomorrow.
-                </p>
-                <p style="color:var(--muted);line-height:1.8;font-size:.95rem;">
-                    Every bolt tightened and line of code written is a step toward something larger. We're here to build, to learn, and to leave our mark.
-                </p>
-                <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
-                    <button class="btn btn-primary" onclick="navScrollTo('#team')" style="border-radius:.875rem;padding:.7rem 1.6rem;">Meet the Team</button>
-                    <div style="display: none !important">
-                        <button class="btn btn-outline" onclick="navScrollTo('#goals')" style="border-radius:.875rem;padding:.7rem 1.6rem;color:var(--off-white);">Our Goals</button>
+                </div>
+                <div>
+                    <span class="section-label">Our Story</span>
+                    <h3 class="section-heading" style="font-size:clamp(1.4rem,3vw,2rem);">From Kanata, For the Future</h3>
+                    <p style="color:var(--muted);line-height:1.8;margin-bottom:1.25rem;font-size:.95rem;">
+                        We're a first-year FTC team, f by students who believe robotics is more than a competition: it's a launchpad for engineers, designers, strategists, and leaders of tomorrow.
+                    </p>
+                    <p style="color:var(--muted);line-height:1.8;font-size:.95rem;">
+                        Every bolt tightened and line of code written is a step toward something larger. We're here to build, to learn, and to leave our mark.
+                    </p>
+                    <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
+                        <button class="btn btn-primary" onclick="navScrollTo('#team')" style="border-radius:.875rem;padding:.7rem 1.6rem;">Meet the Team</button>
+                        <div style="display: none !important">
+                            <button class="btn btn-outline" onclick="navScrollTo('#goals')" style="border-radius:.875rem;padding:.7rem 1.6rem;color:var(--off-white);">Our Goals</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Core Values -->
-        <div class="values-grid">
-            <div class="card value-card fade-in-section lift">
-                <div class="value-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
+            <!-- Core Values -->
+            <div class="values-grid">
+                <div class="card value-card fade-in-section lift">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"/></svg>
+                    </div>
+                    <div class="value-title">Innovation</div>
+                    <div class="value-desc">Creative problem-solving and first-principles engineering at every stage of our build.</div>
                 </div>
-                <div class="value-title">Innovation</div>
-                <div class="value-desc">Creative problem-solving and first-principles engineering at every stage of our build.</div>
-            </div>
-            <div class="card value-card fade-in-section lift" style="transition-delay:.1s">
-                <div class="value-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                <div class="card value-card fade-in-section lift" style="transition-delay:.1s">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                    </div>
+                    <div class="value-title">Teamwork</div>
+                    <div class="value-desc">Diverse skills unified under one goal, collaboration is our greatest strength.</div>
                 </div>
-                <div class="value-title">Teamwork</div>
-                <div class="value-desc">Diverse skills unified under one goal, collaboration is our greatest strength.</div>
-            </div>
-            <div class="card value-card fade-in-section lift" style="transition-delay:.2s">
-                <div class="value-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+                <div class="card value-card fade-in-section lift" style="transition-delay:.2s">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"/></svg>
+                    </div>
+                    <div class="value-title">Engineering</div>
+                    <div class="value-desc">Real-world skills in CAD, mechanical design, software, and systems thinking.</div>
                 </div>
-                <div class="value-title">Engineering</div>
-                <div class="value-desc">Real-world skills in CAD, mechanical design, software, and systems thinking.</div>
-            </div>
-            <div class="card value-card fade-in-section lift" style="transition-delay:.3s">
-                <div class="value-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+                <div class="card value-card fade-in-section lift" style="transition-delay:.3s">
+                    <div class="value-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>
+                    </div>
+                    <div class="value-title">Growth</div>
+                    <div class="value-desc">We're rookies, and we wear that with pride. Every season, we will get better.</div>
                 </div>
-                <div class="value-title">Growth</div>
-                <div class="value-desc">We're rookies, and we wear that with pride. Every season, we will get better.</div>
             </div>
-        </div>
 
-        <!-- Mission box -->
-        <div class="mission-box fade-in-section" style="margin-top:4rem;">
-            <div class="glow-1"></div><div class="glow-2"></div>
-            <span class="mission-label">Our Mission</span>
-            <blockquote class="mission-quote">
-                "To inspire the next generation of engineers and problem-solvers through the power of competitive robotics."
-            </blockquote>
-            <div class="mission-divider">
-                <div class="line"></div>
-                <span>Mage Robotics</span>
-                <div class="line"></div>
+            <!-- Mission box -->
+            <div class="mission-box fade-in-section" style="margin-top:4rem;">
+                <div class="glow-1"></div><div class="glow-2"></div>
+                <span class="mission-label">Our Mission</span>
+                <blockquote class="mission-quote">
+                    "To inspire the next generation of engineers and problem-solvers through the power of competitive robotics."
+                </blockquote>
+                <div class="mission-divider">
+                    <div class="line"></div>
+                    <span>Mage Robotics</span>
+                    <div class="line"></div>
+                </div>
             </div>
         </div>
-    </div>
 </section>
 <div style="display: none !important"><!--commentout-->
-<!-- ─── GOALS / SEASON CAROUSEL (2 — Goals & Missions) ─── -->
-<section id="goals" style="padding:6rem 0;background:var(--dark-2);">
-    <div class="container">
-        <div class="section-intro fade-in-section">
-            <span class="section-label">Goals & Missions</span>
-            <h2 class="section-heading">What We're Chasing</h2>
-            <p class="section-body">Teamwork, collaboration, and results. Here's a look at our season milestones and what drives us forward.</p>
-        </div>
-
-        <div class="carousel-wrap fade-in-section">
-            <div class="carousel-track" id="carouselTrack">
-                <!-- Slide 1 -->
-                <div class="carousel-slide">
-                    <!-- <img src="assets/assembly.jpg" alt="Robot Assembly" /> -->
-                    <div class="carousel-slide-placeholder">Assembly & Build Season — photo coming soon</div>
-                    <div class="carousel-overlay"></div>
-                    <div class="carousel-caption">
-                        <div class="carousel-cap-sub">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63"/></svg>
-                            Build Season
-                        </div>
-                        <div class="carousel-cap-title">Assembling our first competition robot from scratch</div>
-                    </div>
-                </div>
-                <!-- Slide 2 -->
-                <div class="carousel-slide">
-                    <div class="carousel-slide-placeholder">Student Innovation — CAD & Prototyping — photo coming soon</div>
-                    <div class="carousel-overlay"></div>
-                    <div class="carousel-caption">
-                        <div class="carousel-cap-sub">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
-                            Innovation
-                        </div>
-                        <div class="carousel-cap-title">CAD design, prototyping, and iterating toward our final bot</div>
-                    </div>
-                </div>
-                <!-- Slide 3 -->
-                <div class="carousel-slide">
-                    <div class="carousel-slide-placeholder">Competition — FTC Qualifier — photo coming soon</div>
-                    <div class="carousel-overlay"></div>
-                    <div class="carousel-caption">
-                        <div class="carousel-cap-sub">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/></svg>
-                            Competition
-                        </div>
-                        <div class="carousel-cap-title">Competing at FTC Ontario qualifiers — our first time on the field</div>
-                    </div>
-                </div>
-                <!-- Slide 4 -->
-                <div class="carousel-slide">
-                    <div class="carousel-slide-placeholder">Community & Outreach — photo coming soon</div>
-                    <div class="carousel-overlay"></div>
-                    <div class="carousel-caption">
-                        <div class="carousel-cap-sub">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
-                            Outreach
-                        </div>
-                        <div class="carousel-cap-title">Giving back — inspiring younger students to get into STEM and robotics</div>
-                    </div>
-                </div>
+    <!-- ─── GOALS / SEASON CAROUSEL (2 — Goals & Missions) ─── -->
+    <section id="goals" style="padding:6rem 0;background:var(--dark-2);">
+        <div class="container">
+            <div class="section-intro fade-in-section">
+                <span class="section-label">Goals & Missions</span>
+                <h2 class="section-heading">What We're Chasing</h2>
+                <p class="section-body">Teamwork, collaboration, and results. Here's a look at our season milestones and what drives us forward.</p>
             </div>
-            <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-            </button>
-            <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
-            </button>
-        </div>
-        <div class="carousel-dots">
-            <button class="dot active" onclick="goSlide(0)"></button>
-            <button class="dot" onclick="goSlide(1)"></button>
-            <button class="dot" onclick="goSlide(2)"></button>
-            <button class="dot" onclick="goSlide(3)"></button>
-        </div>
-    </div>
-</section>
 
-<!-- ─── TIMELINE (3 — Aeros Shit / FTC History) ─── -->
-<section id="timeline" style="padding:6rem 0;background:var(--dark);">
-    <div class="container">
-        <div class="section-intro fade-in-section">
-            <span class="section-label">Our Journey</span>
-            <h2 class="section-heading">Season Timeline</h2>
-            <p class="section-body">Every milestone, every build session, every breakthrough — this is how Mage Robotics came to life.</p>
-        </div>
-        <div class="timeline-container fade-in-section">
-            <div class="timeline-line"></div>
-            <div class="timeline-items">
-                <div class="timeline-item" data-index="0">
-                    <div class="timeline-node-wrap">
-                        <div class="timeline-node highlight">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+            <div class="carousel-wrap fade-in-section">
+                <div class="carousel-track" id="carouselTrack">
+                    <!-- Slide 1 -->
+                    <div class="carousel-slide">
+                        <!-- <img src="assets/assembly.jpg" alt="Robot Assembly" /> -->
+                        <div class="carousel-slide-placeholder">Assembly & Build Season — photo coming soon</div>
+                        <div class="carousel-overlay"></div>
+                        <div class="carousel-caption">
+                            <div class="carousel-cap-sub">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63"/></svg>
+                                Build Season
+                            </div>
+                            <div class="carousel-cap-title">Assembling our first competition robot from scratch</div>
                         </div>
                     </div>
-                    <div class="card timeline-card">
-                        <div class="timeline-meta">
-                            <span class="phase-badge highlight">Founding</span>
-                            <span class="timeline-period">May 2026</span>
+                    <!-- Slide 2 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-placeholder">Student Innovation — CAD & Prototyping — photo coming soon</div>
+                        <div class="carousel-overlay"></div>
+                        <div class="carousel-caption">
+                            <div class="carousel-cap-sub">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+                                Innovation
+                            </div>
+                            <div class="carousel-cap-title">CAD design, prototyping, and iterating toward our final bot</div>
                         </div>
-                        <div class="timeline-title">Team Founded</div>
-                        <div class="timeline-desc">Mage Robotics is established. Team members recruited, roles assigned, and the dream begins.</div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-placeholder">Competition — FTC Qualifier — photo coming soon</div>
+                        <div class="carousel-overlay"></div>
+                        <div class="carousel-caption">
+                            <div class="carousel-cap-sub">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0"/></svg>
+                                Competition
+                            </div>
+                            <div class="carousel-cap-title">Competing at FTC Ontario qualifiers — our first time on the field</div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-slide-placeholder">Community & Outreach — photo coming soon</div>
+                        <div class="carousel-overlay"></div>
+                        <div class="carousel-caption">
+                            <div class="carousel-cap-sub">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>
+                                Outreach
+                            </div>
+                            <div class="carousel-cap-title">Giving back — inspiring younger students to get into STEM and robotics</div>
+                        </div>
                     </div>
                 </div>
-                <!-- <div class="timeline-item" data-index="1">
-                    <div class="timeline-node-wrap">
-                        <div class="timeline-node normal">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03"/></svg>
-                        </div>
-                    </div>
-                    <div class="card timeline-card">
-                        <div class="timeline-meta">
-                            <span class="phase-badge normal">Build</span>
-                            <span class="timeline-period">Month XXXX</span>
-                        </div>
-                        <div class="timeline-title">Build Season Begins</div>
-                        <div class="timeline-desc">Game reveal drops. Design brainstorms, CAD sessions, and first prototypes get underway.</div>
-                    </div>
-
-                </div>
-                <div class="timeline-item" data-index="2">
-                    <div class="timeline-node-wrap">
-                        <div class="timeline-node normal">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497"/></svg>
-                        </div>
-                    </div>
-                    <div class="card timeline-card">
-                        <div class="timeline-meta">
-                            <span class="phase-badge normal">Milestone</span>
-                            <span class="timeline-period">Month XXXX</span>
-                        </div>
-                        <div class="timeline-title">First Qualifier</div>
-                        <div class="timeline-desc">Mage Robotics competes for the first time at an FTC Ontario qualifier event.</div>
-                    </div>
-                </div>
-                <div class="timeline-item" data-index="3">
-                    <div class="timeline-node-wrap">
-                        <div class="timeline-node highlight">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443"/></svg>
-                        </div>
-                    </div>
-                    <div class="card timeline-card">
-                        <div class="timeline-meta">
-                            <span class="phase-badge highlight">Season End</span>
-                            <span class="timeline-period">Month XXXX</span>
-                        </div>
-                        <div class="timeline-title">Season Wrap-Up & Reflections</div>
-                        <div class="timeline-desc">Season closes. Awards pursued, lessons learned, and eyes already on next year.</div>
-                    </div>
-                </div>
-            -->
+                <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+            <div class="carousel-dots">
+                <button class="dot active" onclick="goSlide(0)"></button>
+                <button class="dot" onclick="goSlide(1)"></button>
+                <button class="dot" onclick="goSlide(2)"></button>
+                <button class="dot" onclick="goSlide(3)"></button>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+    <!-- ─── TIMELINE (3 — Aeros Shit / FTC History) ─── -->
+    <section id="timeline" style="padding:6rem 0;background:var(--dark);">
+        <div class="container">
+            <div class="section-intro fade-in-section">
+                <span class="section-label">Our Journey</span>
+                <h2 class="section-heading">Season Timeline</h2>
+                <p class="section-body">Every milestone, every build session, every breakthrough — this is how Mage Robotics came to life.</p>
+            </div>
+            <div class="timeline-container fade-in-section">
+                <div class="timeline-line"></div>
+                <div class="timeline-items">
+                    <div class="timeline-item" data-index="0">
+                        <div class="timeline-node-wrap">
+                            <div class="timeline-node highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+                            </div>
+                        </div>
+                        <div class="card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="phase-badge highlight">Founding</span>
+                                <span class="timeline-period">May 2026</span>
+                            </div>
+                            <div class="timeline-title">Team Founded</div>
+                            <div class="timeline-desc">Mage Robotics is established. Team members recruited, roles assigned, and the dream begins.</div>
+                        </div>
+                    </div>
+                    <!-- <div class="timeline-item" data-index="1">
+                        <div class="timeline-node-wrap">
+                            <div class="timeline-node normal">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03"/></svg>
+                            </div>
+                        </div>
+                        <div class="card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="phase-badge normal">Build</span>
+                                <span class="timeline-period">Month XXXX</span>
+                            </div>
+                            <div class="timeline-title">Build Season Begins</div>
+                            <div class="timeline-desc">Game reveal drops. Design brainstorms, CAD sessions, and first prototypes get underway.</div>
+                        </div>
+
+                    </div>
+                    <div class="timeline-item" data-index="2">
+                        <div class="timeline-node-wrap">
+                            <div class="timeline-node normal">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497"/></svg>
+                            </div>
+                        </div>
+                        <div class="card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="phase-badge normal">Milestone</span>
+                                <span class="timeline-period">Month XXXX</span>
+                            </div>
+                            <div class="timeline-title">First Qualifier</div>
+                            <div class="timeline-desc">Mage Robotics competes for the first time at an FTC Ontario qualifier event.</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-index="3">
+                        <div class="timeline-node-wrap">
+                            <div class="timeline-node highlight">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443"/></svg>
+                            </div>
+                        </div>
+                        <div class="card timeline-card">
+                            <div class="timeline-meta">
+                                <span class="phase-badge highlight">Season End</span>
+                                <span class="timeline-period">Month XXXX</span>
+                            </div>
+                            <div class="timeline-title">Season Wrap-Up & Reflections</div>
+                            <div class="timeline-desc">Season closes. Awards pursued, lessons learned, and eyes already on next year.</div>
+                        </div>
+                    </div>
+                -->
+                </div>
+            </div>
+        </div>
+    </section>
     <!--commentout--></div>
 
 <!-- ─── TEAM (2 — About Us: intro of members/dept w/ pics) ─── -->
@@ -1350,18 +1443,19 @@
                 <div class="impact-imgs">
                     <div class="pic-frame impact-img-slot">
                         <img src="assets/cad1.png" alt="CAD Screenshot" />
-                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Accessibility</div>
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">CAD</div>
                     </div>
                     <div class="pic-frame impact-img-slot">
                         <img src="assets/code1.png" alt="Code Screenshot" />
-                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Awards / Competition</div>
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Code</div>
                     </div>
                     <div class="pic-frame impact-img-slot">
                         <img src="assets/code2.png" alt="Code Screenshot" />
-                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Accessibility</div>
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Autonomous Pathing</div>
                     </div>
                     <div class="pic-frame impact-img-slot">
-                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Awards / Competition</div>
+                        <img src="assets/finance1.png" alt="Spreadsheet Screenshot" />
+                        <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Financial Management</div>
                     </div>
                 </div>
             </div>
@@ -1645,6 +1739,19 @@
         const widgetRight = $('#widgetRight');
 
         // Thresholds
+        /* ─── Theme Toggle ─── */
+        (function() {
+            const btn = document.getElementById('themeToggleBtn');
+            const stored = localStorage.getItem('mage-theme');
+            // Default is dark; only apply light if explicitly stored
+            if (stored === 'light') document.body.classList.add('light-mode');
+
+            btn.addEventListener('click', function() {
+                const isLight = document.body.classList.toggle('light-mode');
+                localStorage.setItem('mage-theme', isLight ? 'light' : 'dark');
+            });
+        })();
+
         if (scrollPos > 150) {
             $('.mage-bg-widget').addClass('emerged');
         } else {
