@@ -8,6 +8,7 @@
     <meta name="description" content="Mage Robotics - we are a community FTC team from Kanata, Ontario, engineering the future one season at a time!" />
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <link rel="icon" type="image/x-icon" href="assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1626,6 +1627,7 @@
                         </div>
                     </div>
                     <div class="form-error" id="formError"></div>
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAADVmQRjVCGP3YE-n"></div>
                     <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
                         <svg id="sendIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
                         <svg id="spinnerIcon" class="spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" style="display:none"><circle cx="12" cy="12" r="10" stroke-opacity=".25"/><path d="M12 2a10 10 0 0110 10" stroke-opacity=".75"/></svg>
@@ -1830,6 +1832,13 @@
     const spinnerIcon = document.getElementById('spinnerIcon');
     const submitText  = document.getElementById('submitText');
 
+    const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+
+    if (!turnstileToken) {
+        formError.textContent = 'Please complete the security check first.';
+        formError.classList.add('show');
+    }
+
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         const name    = document.getElementById('name').value.trim();
@@ -1841,7 +1850,7 @@
         formError.classList.remove('show');
         submitBtn.disabled = true; sendIcon.style.display = 'none'; spinnerIcon.style.display = ''; submitText.textContent = 'Sending…';
         $.ajax({
-            url: "https://formsubmit.co/ajax/magerobotics@gmail.com",
+            url: "contactform.magerobotics.ca",
             method: "POST",
             data: { name, email, subject, message },
             dataType: "json"
