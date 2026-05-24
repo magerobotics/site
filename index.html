@@ -1852,7 +1852,7 @@
         $.ajax({
             url: "contactform.magerobotics.ca",
             method: "POST",
-            data: { name, email, subject, message },
+            data: JSON.stringify({ name, email, subject, message, turnstileToken }),
             dataType: "json"
         }).done(function(data) {
             if (data.success === "true") { form.style.display = 'none'; formSuccess.style.display = 'block'; }
