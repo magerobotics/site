@@ -1855,7 +1855,7 @@
             data: JSON.stringify({ name, email, subject, message, turnstileToken }),
             dataType: "json"
         }).done(function(data) {
-            if (data.success === "true") { form.style.display = 'none'; formSuccess.style.display = 'block'; }
+            if (data.success === true) { form.style.display = 'none'; formSuccess.style.display = 'block'; }
             else { formError.textContent = 'Failed to send. Please email us directly.'; formError.classList.add('show'); submitBtn.disabled = false; sendIcon.style.display = ''; spinnerIcon.style.display = 'none'; submitText.textContent = 'Send Message'; }
         }).fail(function() { formError.textContent = 'Something went wrong. Please try again.'; formError.classList.add('show'); submitBtn.disabled = false; sendIcon.style.display = ''; spinnerIcon.style.display = 'none'; submitText.textContent = 'Send Message'; });
     });
