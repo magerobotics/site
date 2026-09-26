@@ -475,6 +475,8 @@
         }
         .team-card:hover .team-photo-overlay { opacity: 1; }
         .team-card:hover { transform: scale(1.06); }
+        .sponsor-card {image-rendering: smooth; transition: transform 0.22s ease-in-out;}
+        .sponsor-card:hover { transform: scale(1.1); }
         .team-dept-badge {
             font-family: 'DM Sans', sans-serif; font-size: .65rem; font-weight: 700;
             letter-spacing: .1em; text-transform: uppercase;
@@ -557,7 +559,7 @@
         }
         .form-select { appearance: none; cursor: pointer; }
         .form-textarea { resize: none; min-height: 7rem; }
-        .form-error { color: #f87171; font-size: .875rem; margin-top: -.5rem; display: none; }
+        .form-error { color: #ffffff; font-size: .875rem; margin-top: -.5rem; display: none; }
         .form-error.show { display: block; }
         .form-submit { width: 100%; padding: 1rem; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: .5rem; margin-top: 1rem; border-radius: .875rem; }
         .form-submit svg { width: 1.2rem; height: 1.2rem; stroke: currentColor; }
@@ -1010,16 +1012,16 @@
     </div>
     <div class="hero-content">
         <h1 class="hero-h1">
-            Crafting today,<br/>
-            <span class="gradient-text">Shaping tomorrow.</span>
+            Crafting Today<br/>
+            <span class="hero-h1">Shaping Tomorrow</span>
         </h1>
         <p class="hero-sub">
-            Mage Robotics (FTC #36511) is a FIRST Tech Challenge team from Kanata, Ontario, driven by curiosity and thrive collaborating.
+            Mage Robotics (FTC #36511) is a FIRST Tech Challenge team from Kanata, Ontario, driven by curiosity and thrives collaborating. Our mission is to provide accessible STEM oppurtunities to local youth.
         </p>
         <div class="hero-ctas">
             <button class="btn btn-outline" onclick="navScrollTo('#contact')" style="padding:.875rem 2.25rem;font-size:1.05rem;">Contact Us</button>
             <button class="btn btn-primary" onclick="navScrollTo('#sponsors')" style="padding:.875rem 2.25rem;font-size:1.05rem;">
-                Support Our Mission
+                Support Us
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
         </div>
@@ -1071,7 +1073,6 @@
 <section id="about" style="padding:6rem 0;background:var(--dark);">
     <div class="container">
         <div class="section-intro fade-in-section">
-            <span class="section-label">Who We Are</span>
             <h2 class="section-heading">A Rookie Team. A Big Vision.</h2>
             <p class="section-body">
                 Mage Robotics is a new FTC team from Kanata, Ontario. We're a group of passionate students committed to learning, building, and competing, with ambitions that go far beyond our first season.
@@ -1082,20 +1083,15 @@
         <div class="about-grid fade-in-section" style="margin-bottom:4rem;">
             <div class="about-img-wrap">
                 <!-- Replace with actual group photo (everyone in uniform) -->
-                <div class="team-card pic-frame " style="aspect-ratio:2/1;background:var(--dark-3);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem; margin-bottom: 10vh">
-                    <img src="assets/teamphoto.jpg" alt="Team Photo">
+                <div class="team-card pic-frame " style="aspect-ratio:3/2;background:var(--dark-3);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.9rem; margin-bottom: 10vh">
+                    <img src="assets/teamphoto.png" style="opacity: 0.8;filter:" alt="Team Photo">
                 </div>
                 <div>
-                    <span class="section-label">Our Story</span>
                     <h3 class="section-heading" style="font-size:clamp(1.4rem,3vw,2rem);">From Kanata, For the Future</h3>
                     <p style="color:var(--muted);line-height:1.8;margin-bottom:1.25rem;font-size:.95rem;">
-                        We're a first-year FTC team, and we believe robotics is more than a competition: it's a launchpad for engineers, designers, strategists, and leaders of tomorrow.
-                    </p>
-                    <p style="color:var(--muted);line-height:1.8;font-size:.95rem;">
-                        Every bolt tightened and line of code written is a step toward something larger. We're here to build, to learn, and to leave our mark.
+                        We're a first-year FTC team, and we believe robotics is more than a competition: it's a launchpad for engineers, designers, strategists, and leaders of tomorrow. We want to do our best to create accessible STEM oppurtunities for all, and we thank all of our generous sponsors for their help with our mission. We're working on a better future for everyone, starting from adolescence.
                     </p>
                     <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;">
-                        <button class="btn btn-primary" onclick="navScrollTo('#team')" style="border-radius:.875rem;padding:.7rem 1.6rem;">Meet the Team</button>
                         <div style="display: none !important">
                             <button class="btn btn-outline" onclick="navScrollTo('#goals')" style="border-radius:.875rem;padding:.7rem 1.6rem;color:var(--off-white);">Our Goals</button>
                         </div>
@@ -1138,7 +1134,6 @@
             <!-- Mission box -->
             <div class="mission-box fade-in-section" style="margin-top:4rem;">
                 <div class="glow-1"></div><div class="glow-2"></div>
-                <span class="mission-label">Our Mission</span>
                 <blockquote class="mission-quote">
                     "To inspire the next generation of engineers and problem-solvers through the power of competitive robotics."
                 </blockquote>
@@ -1311,9 +1306,7 @@
 <section id="team" style="padding:6rem 0;background:var(--dark-2);">
     <div class="container">
         <div class="section-intro fade-in-section">
-            <span class="section-label">About Us</span>
             <h2 class="section-heading">Meet the Team</h2>
-            <p class="section-body">Individual shots, roles, and a glimpse of what each department brings to the table.</p>
         </div>
         <div class="team-grid">
             <!-- Repeat / replace with actual team members -->
@@ -1365,28 +1358,6 @@
             </div>
             <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
                 <div class="team-photo pic-frame">
-                    <img src="assets/kolyashymko.jpg" alt="Kolya Shymko" />
-                    <div class="team-photo-placeholder">?</div>
-                    <div class="team-photo-overlay"><span class="team-dept-badge">Hardware</span></div>
-                </div>
-                <div class="team-info">
-                    <div class="team-name">Kolya Shymko</div>
-                    <div class="team-role">CAD Manager</div>
-                </div>
-            </div>
-            <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
-                <div class="team-photo pic-frame">
-                    <img src="assets/avnitaguru.jpg" alt="Avnita Guru" />
-                    <div class="team-photo-placeholder">?</div>
-                    <div class="team-photo-overlay"><span class="team-dept-badge">Media</span></div>
-                </div>
-                <div class="team-info">
-                    <div class="team-name">Avnita Guru</div>
-                    <div class="team-role">Artwork</div>
-                </div>
-            </div>
-            <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
-                <div class="team-photo pic-frame">
                     <img src="assets/yusufqureshi.jpg" alt="Yusuf Qureshi" />
                     <div class="team-photo-placeholder">?</div>
                     <div class="team-photo-overlay"><span class="team-dept-badge">Hardware</span></div>
@@ -1394,6 +1365,17 @@
                 <div class="team-info">
                     <div class="team-name">Yusuf Qureshi</div>
                     <div class="team-role">Prototyping</div>
+                </div>
+            </div>
+            <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
+                <div class="team-photo pic-frame">
+                    <img src="assets/kolyashymko.jpg" alt="Kolya Shymko" />
+                    <div class="team-photo-placeholder">?</div>
+                    <div class="team-photo-overlay"><span class="team-dept-badge">Media</span></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Kolya Shymko</div>
+                    <div class="team-role">Merchandise</div>
                 </div>
             </div>
             <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
@@ -1409,24 +1391,68 @@
             </div>
             <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
                 <div class="team-photo pic-frame">
-                    <img src="assets/abantikapurkayastha.jpg" alt="Abantika Purkayastha" />
+                    <img src="assets/edwardxie.jpg" alt="Edward Xie" />
+                    <div class="team-photo-placeholder">?</div>
+                    <div class="team-photo-overlay"><span class="team-dept-badge">Hardware</span></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Edward Xie</div>
+                    <div class="team-role">CAD</div>
+                </div>
+            </div>
+            <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
+                <div class="team-photo pic-frame">
+                    <img src="assets/aarnavbasnet.jpg" alt="Aarnav Basnet" />
                     <div class="team-photo-placeholder">?</div>
                     <div class="team-photo-overlay"><span class="team-dept-badge">Media</span></div>
                 </div>
                 <div class="team-info">
-                    <div class="team-name">Abantika Purkayastha</div>
+                    <div class="team-name">Aarnav Basnet</div>
+                    <div class="team-role">Recruitment</div>
+                </div>
+            </div>
+            <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
+                <div class="team-photo pic-frame">
+                    <img src="assets/joshuasu.jpg" alt="Joshua Su" />
+                    <div class="team-photo-placeholder">?</div>
+                    <div class="team-photo-overlay"><span class="team-dept-badge">Hardware</span></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Joshua Su</div>
+                    <div class="team-role">Wiring</div>
+                </div>
+            </div>
+            <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
+                <div class="team-photo pic-frame">
+                    <img src="assets/amaanahmed.jpg" alt="Amaan Ahmed" />
+                    <div class="team-photo-placeholder">?</div>
+                    <div class="team-photo-overlay"><span class="team-dept-badge">Media</span></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Amaan Ahmed</div>
                     <div class="team-role">Documentation</div>
                 </div>
             </div>
             <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
                 <div class="team-photo pic-frame">
-                    <img src="assets/haydenlee.jpg" alt="Hayden Lee" />
+                    <img src="assets/advaitmenon.jpg" alt="Advait Menon" />
                     <div class="team-photo-placeholder">?</div>
                     <div class="team-photo-overlay"><span class="team-dept-badge">Hardware</span></div>
                 </div>
                 <div class="team-info">
-                    <div class="team-name">Hayden Lee</div>
-                    <div class="team-role">Design</div>
+                    <div class="team-name">Advait Menon</div>
+                    <div class="team-role">Scouting</div>
+                </div>
+            </div>
+            <div class="card team-card fade-in-section lift" style="transition-delay:.2s">
+                <div class="team-photo pic-frame">
+                    <img src="assets/veerdogra.jpg" alt="Veer Dogra" />
+                    <div class="team-photo-placeholder">?</div>
+                    <div class="team-photo-overlay"><span class="team-dept-badge">Media</span></div>
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Veer Dogra</div>
+                    <div class="team-role">Finance</div>
                 </div>
             </div>
         </div>
@@ -1437,7 +1463,6 @@
 <section id="impact" style="padding:6rem 0;background:var(--dark);">
     <div class="container">
         <div class="section-intro fade-in-section">
-            <span class="section-label">Student Impact</span>
             <h2 class="section-heading">Innovation. Accessibility. Growth.</h2>
             <p class="section-body">Robotics changes students. Here at Mage Robotics, we want to amplify that change, in Kanata and beyond.</p>
         </div>
@@ -1454,17 +1479,16 @@
                         <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Code</div>
                     </div>
                     <div class="pic-frame impact-img-slot">
-                        <img src="assets/code2.png" alt="Code Screenshot" />
+                        <img src="assets/parts1.png" alt="Parts Waiting to be Used" />
                         <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Autonomous Pathing</div>
                     </div>
                     <div class="pic-frame impact-img-slot">
-                        <img src="assets/finance1.png" alt="Spreadsheet Screenshot" />
+                        <img src="assets/printer1.png" alt="Fixing 3D Printer" />
                         <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.8rem;background:var(--dark-3);">Financial Management</div>
                     </div>
                 </div>
             </div>
             <div>
-                <span class="section-label">Our Values in Action</span>
                 <h3 class="section-heading" style="font-size:clamp(1.25rem,2.5vw,1.75rem);">Why It Matters</h3>
                 <p style="color:var(--muted);line-height:1.8;margin-bottom:1rem;font-size:.9rem;">
                     We believe robotics is one of the most powerful ways to unlock potential in young people. Our team is committed to making this space inclusive, rigorous, and inspiring. Not just for ourselves, but for the community around us.
@@ -1501,13 +1525,49 @@
 <section id="sponsors" style="padding:6rem 0;background:var(--dark-2);">
     <div class="container">
         <div class="section-intro fade-in-section">
-            <span class="section-label">Sponsorship</span>
             <h2 class="section-heading">Our Supporters</h2>
-            <p class="section-body">Mage Robotics is powered by the generosity of sponsors who believe in the next generation.</p>
+            <p class="section-body">Mage Robotics is powered by the generosity of sponsors who believe in the next generation, and the hard work of students and mentors.</p>
         </div>
+        <!-- POTENTIAL FOR TS BTW KEEPING TS NICHE ON EL LOW:
+
+
+        <div class="sponsor-cta fade-in-section" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; width: 100%;">
+            <a href="https://tutorocean.com" target="_blank" rel="noopener" style="flex: 1 1 calc(50% - 15px); min-width: 280px; text-align: center;">
+                <img class="sponsor-card" src="assets/tutorocean.png" alt="TutorOcean" style="width: 100%; max-width: 400px; height: auto; display: inline-block;" />
+            </a>
+            <a href="https://quadc.io" target="_blank" rel="noopener" style="flex: 1 1 calc(50% - 15px); min-width: 280px; text-align: center;">
+                <img class="sponsor-card" src="assets/quadc.png" alt="QuadC" style="width: 100%; max-width: 400px; height: auto; display: inline-block;" />
+            </a>
+            <a href="https://envirolaser3d.com" target="_blank" rel="noopener" style="flex: 1 1 calc(50% - 15px); min-width: 280px; text-align: center;">
+                <img class="sponsor-card" src="assets/envirolaser.png" alt="Envirolaser 3D" style="width: 100%; max-width: 400px; height: auto; display: inline-block;" />
+            </a>
+            <a href="https://gobilda.com" target="_blank" rel="noopener" style="flex: 1 1 calc(50% - 15px); min-width: 280px; text-align: center;">
+                <img class="sponsor-card" src="assets/gobilda.png" alt="GoBILDA" style="width: 100%; max-width: 400px; height: auto; display: inline-block;" />
+            </a>
+            <a href="https://studica.ca" target="_blank" rel="noopener" style="flex: 1 1 calc(50% - 15px); min-width: 280px; text-align: center;">
+                <img class="sponsor-card" src="assets/studica.png" alt="Studica" style="width: 100%; max-width: 400px; height: auto; display: inline-block;" />
+            </a>
+        </div>
+
+
+        -->
         <div class="sponsor-cta fade-in-section" style="display:flex; flex-wrap: wrap; flex-direction: row; align-items: center; justify-content: center;">
-            <img src="assets/tutorocean.png" alt="TutorOcean" style="flex: 1 1 0; min-width: 0"/>
-            <img src="assets/quadc.png" alt="QuadC" style="flex: 1 1 0; min-width: 0"/>
+            <a href="https://www.tutorocean.com/"  target="_blank" rel="noopener" style="flex: 1 1 0; min-width: 0">
+                <img class="sponsor-card" src="assets/tutorocean.png" alt="TutorOcean"/>
+            </a>
+            <a href="https://www.quadc.io/" target="_blank" rel="noopener" style="flex: 1 1 0; min-width: 0">
+                <img class="sponsor-card" src="assets/quadc.png" alt="QuadC"/>
+            </a>
+            <a href="https://www.envirolaser3d.com/" target="_blank" rel="noopener" style="flex: 1 1 0; min-width: 0">
+                <img class="sponsor-card" src="assets/envirolaser.png" alt="Envirolaser 3D"/>
+            </a>
+            <a href="https://www.gobilda.com/" target="_blank" rel="noopener" style="flex: 1 1 0; min-width: 0">
+                <img class="sponsor-card" src="assets/gobilda.png" alt="GoBILDA" />
+            </a>
+            <a href="https://www.studica.ca/en/" target="_blank" rel="noopener" style="flex: 1 1 0; min-width: 0">
+                <img class="sponsor-card" src="assets/studica.png" alt="Studica"/>
+            </a>
+
         </div>
 
         <!-- CTA -->
@@ -1517,27 +1577,23 @@
             <p>
                 We're looking for sponsors who want to support young engineers from Kanata. Your contribution goes directly toward parts, tools, CAD software, competition fees, etc. Here's how it helps us, and how it helps <em>you</em>.
             </p>
-            <button class="btn btn-primary" onclick="navScrollTo('#contact')" style="border-radius:.875rem;padding:.875rem 2rem;position:relative;">
-                Get in Touch
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
             <div class="sponsor-why">
-                <div class="why-item">
+                <div class="why-item sponsor-card">
                     <div class="why-num">01</div>
                     <div class="why-title">Brand Visibility</div>
                     <div class="why-desc">Your logo on our robot, uniforms, and website, seen at competitions and online.</div>
                 </div>
-                <div class="why-item">
+                <div class="why-item sponsor-card">
                     <div class="why-num">02</div>
                     <div class="why-title">Community Impact</div>
                     <div class="why-desc">Directly support STEM education and youth development in Kanata.</div>
                 </div>
-                <div class="why-item">
+                <div class="why-item sponsor-card">
                     <div class="why-num">03</div>
                     <div class="why-title">Talent Pipeline</div>
                     <div class="why-desc">Connect with the next generation of engineers and innovators.</div>
                 </div>
-                <div class="why-item">
+                <div class="why-item sponsor-card">
                     <div class="why-num">04</div>
                     <div class="why-title">Potential Awards</div>
                     <div class="why-desc">Sponsors are recognized in our Engineering Notebook, a judged deliverable at competitions.</div>
@@ -1551,14 +1607,13 @@
 <section id="contact" style="padding:6rem 0;background:var(--dark-2);">
     <div class="container">
         <div class="section-intro fade-in-section">
-            <span class="section-label">Contact</span>
             <h2 class="section-heading">Get In Touch</h2>
-            <p class="section-body">Have a question, want to sponsor us, or just want to chat? Reach out.</p>
+            <p class="section-body">Want to sponsor us, mentor us, or just want to chat? Reach out!</p>
         </div>
         <div class="contact-grid">
             <div class="contact-sidebar fade-in-section" style="transition-delay:.15s">
                 <div class="contact-info-card card">
-                    <h3>Direct Links</h3>
+                    <h3>Socials</h3>
                     <a class="contact-link-row" href="mailto:team@magerobotics.ca">
                         <div class="contact-link-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
@@ -1596,12 +1651,19 @@
                     </a>
                 </div>
                 <div class="contact-info-card card">
-                    <h3>Location</h3>
-                    <p style="color:var(--muted);font-size:.875rem;line-height:1.7;margin-bottom:.75rem;">We are from Kanata, Ontario, Canada, competing in FTC Ontario!</p>
-                    <div style="display:flex;align-items:center;gap:.5rem;color:var(--purple-light);font-size:.875rem;font-weight:600;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
-                        Kanata, Ontario
-                    </div>
+                    <h3>Contact Forms</h3>
+                        <a class="contact-link-row" href="https://forms.gle/5Uvxp4hiv7Y1bnuJ8" target="_blank" rel="noopener">
+                            <div>
+                                <div class="contact-link-title">Mentorship Form</div>
+                                <div class="contact-link-sub">https://forms.gle/5Uvxp4hiv7Y1bnuJ8</div>
+                            </div>
+                        </a>
+                        <a class="contact-link-row" href="https://forms.gle/AuFenqRhKYbQYKU37" target="_blank" rel="noopener">
+                            <div>
+                                <div class="contact-link-title">Sponsorship Form</div>
+                                <div class="contact-link-sub">https://forms.gle/AuFenqRhKYbQYKU37</div>
+                            </div>
+                        </a>
                 </div>
             </div>
             <div class="contact-form-wrap fade-in-section">
@@ -1610,23 +1672,26 @@
                     <div class="form-row two">
                         <div>
                             <label for="name">Name</label>
-                            <input class="form-input" id="name" type="text" placeholder="Your name" autocomplete="name" />
+                            <input class="form-input" id="name" type="text" maxlength="100" placeholder="Your name" autocomplete="name" />
                         </div>
                         <div>
                             <label for="email">Email</label>
-                            <input class="form-input" id="email" type="email" placeholder="you@email.com" autocomplete="email" />
+                            <input class="form-input" id="email" type="email" maxlength="100" placeholder="you@email.com" autocomplete="email" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div>
                             <label for="subject">Subject</label>
-                            <input class="form-input" id="subject" type="text" placeholder="What's this about?" />
+                            <input class="form-input" id="subject" type="text" maxlength="200" placeholder="What's this about?" />
                         </div>
                     </div>
                     <div class="form-row">
                         <div>
                             <label for="message">Message</label>
-                            <textarea class="form-textarea" id="message" placeholder="Your message..."></textarea>
+                            <textarea class="form-textarea" id="message" maxlength="1000" placeholder="Your message..."></textarea>
+                            <div class="counter-container">
+                                <span id="char-count">0</span> / <span id="max-count">1000</span>
+                            </div>
                         </div>
                     </div>
                     <div class="form-error" id="formError"></div>
@@ -1720,7 +1785,7 @@
         </div>
         <div class="footer-bottom">
             <!-- FTC Team XXXXX · -->
-            <div class="footer-copy">Mage Robotics · FTC 36511 · <span>Kanata, Ontario</span></div>
+            <div class="footer-copy">Last Updated · <span>September 26th, 2026</span></div>
         </div>
     </div>
 </footer>
@@ -1923,6 +1988,49 @@
     }
 
     document.addEventListener('DOMContentLoaded', startGhostlyEffect);
+
+    // Scan all elements on the page
+    document.querySelectorAll('*').forEach(el => {
+        const bgImage = window.getComputedStyle(el).backgroundImage;
+
+        // Check if the background contains a gradient
+        if (bgImage.includes('gradient')) {
+            // Extract hex, rgb, or color names from inside the gradient parentheses
+            const colorMatch = bgImage.match(/(rgba?\(.*?\)|#[0-9a-fA-F]{3,8}|[a-zA-Z]+)/);
+
+            if (colorMatch) {
+                const firstColor = colorMatch[0];
+                // Kill the gradient and apply the extracted solid color
+                el.style.setProperty('background-image', 'none', `important`);
+                el.style.setProperty('background-color', firstColor, 'important');
+            }
+        }
+    });
+
+    window.addEventListener('load', () => {
+        const images = document.querySelectorAll('img'); // Or your existing images variable
+
+        Array.from(images).forEach(img => {
+            // Only deletes if the image completely failed to load AND it has an alt attribute
+            if (img.naturalWidth === 0 && img.hasAttribute('alt')) {
+                img.remove();
+            }
+        });
+    });
+
+
+    const textarea = document.getElementById('message');
+    const charCountDisplay = document.getElementById('char-count');
+    const maxCountDisplay = document.getElementById('max-count');
+
+    // Dynamically fetch the maxlength value from your HTML (1000)
+    const maxChars = textarea.maxLength;
+    maxCountDisplay.textContent = maxChars;
+
+    // Listen for inputs and update the count
+    textarea.addEventListener('input', () => {
+        charCountDisplay.textContent = textarea.value.length;
+    });
 </script>
 </body>
 </html>
