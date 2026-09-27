@@ -1919,7 +1919,7 @@
         $.ajax({
             url: "https://contactform.magerobotics.ca",
             method: "POST",
-            data: JSON.stringify({ name, email, subject, message, turnstileToken }),
+            data: JSON.stringify({ "name": name, "email": email, "subject": subject, "message": message, "turnstileToken": turnstileToken }),
             dataType: "json"
         }).done(function(data) {
             if (data.success === true) { form.style.display = 'none'; formSuccess.style.display = 'block'; }
