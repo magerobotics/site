@@ -1899,12 +1899,6 @@
     const spinnerIcon = document.getElementById('spinnerIcon');
     const submitText  = document.getElementById('submitText');
 
-    const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
-
-    if (!turnstileToken) {
-        formError.textContent = 'Please complete the security check first.';
-        formError.classList.add('show');
-    }
 
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
@@ -1912,6 +1906,12 @@
         const email   = document.getElementById('email').value.trim();
         const subject = document.getElementById('subject').value.trim();
         const message = document.getElementById('message').value.trim();
+        const turnstileToken = document.querySelector('[name="cf-turnstile-response"]')?.value;
+
+        if (!turnstileToken) {
+            formError.textContent = 'Please complete the security check first.';
+            formError.classList.add('show');
+        }
         if (!name || !email || !subject || !message) { formError.textContent = 'Please fill in all fields.'; formError.classList.add('show'); return; }
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { formError.textContent = 'Please enter a valid email address.'; formError.classList.add('show'); return; }
         formError.classList.remove('show');
